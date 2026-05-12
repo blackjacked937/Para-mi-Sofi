@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #090909, #111827);
+    color: white;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-family: 'Great Vibes', cursive;
+    margin-bottom: 10px;
+    animation: fadeUp 1s ease;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #f9a8d4;
+    margin-bottom: 30px;
+    animation: fadeUp 1.4s ease;
+}
+
+button {
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff4d8d, #ff7eb3);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+}
+button:hover {
+    transform: scale(1.08);
+}
+
+.hidden-content {
+    display: none;
+}
+
+.message-section,
+.counter-section,
+.gallery,
+.letter-section,
+.surprise {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.message-section h2,
+.counter-section h2,
+.gallery h2,
+.letter-section h2,
+.surprise h2 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    color: #ff9ec7;
+}
+.message-section p,
+.letter-box p {
+    max-width: 800px;
+    line-height: 1.9;
+    font-size: 1.1rem;
+    color: #d1d5db;
+    margin-bottom: 20px;
+}
+
+.counter-box {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.counter-box div {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    min-width: 150px;
+}
+
+.counter-box span {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff8fb1;
+}
+.gallery-grid {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    overflow: hidden;
+    border-radius: 25px;
+    transition: 0.4s;
+    background: rgba(255,255,255,0.05);
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+.letter-box {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 50px;
+    border-radius: 30px;
+    max-width: 900px;
+    backdrop-filter: blur(15px);
+}
+
+.signature {
+    margin-top: 40px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem !important;
+    color: #ff9ec7 !important;
+}
+
+.surprise-message {
+    margin-top: 30px;
+    font-size: 2rem;
+    color: #ffb3d1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s;
+}
+.surprise-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #9ca3af;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: 1s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+.particles::before,
+.particles::after {
+    content: '❤ ❤ ❤ ❤ ❤ ❤ ❤';
+    position: absolute;
+    width: 100%;
+    color: rgba(255,255,255,0.08);
+    font-size: 2rem;
+    animation: float 20s linear infinite;
+}
+
+.particles::after {
+    top: 50%;
+    animation-duration: 30s;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+     to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .message-section h2,
+    .counter-section h2,
+    .gallery h2,
+    .letter-section h2,
+    .surprise h2 {
+        font-size: 2.2rem;
+    }
+
+    .counter-box div {
+        min-width: 120px;
+    }
+
+    .counter-box span {
+        font-size: 2rem;
+    }
+ .letter-box {
+        padding: 30px;
+    }
+}
